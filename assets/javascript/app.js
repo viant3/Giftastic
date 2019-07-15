@@ -1,13 +1,13 @@
-var images = ["Marine Corps", "Bulldogs", "Explosions", "Bruce Lee"];
+var images = ["Marines", "Bulldogs", "Explosions", "Bruce Lee"];
 
-// displayGiphyInfo function re-renders the HTML to display the appropriate content
 function displayGiphyInfo() {
 
     var gif = $(this).attr("data-name");
-   
+
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=NON2Fxa8mAT86b3Ru92GZ85PMuvTV93g&q=" + gif + "&limit=10&offset=0&lang=en";
 
-d
+
+   
     $.ajax({
         url: queryURL,
         method: "GET"
