@@ -1,13 +1,14 @@
-var images = ["Marines", "Bulldogs", "Explosions", "Bruce Lee"];
+var images = ["USMC", "Bulldogs", "Explosions", "Bruce Lee"];
 
 function displayGiphyInfo() {
 
     var gif = $(this).attr("data-name");
 
+
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=NON2Fxa8mAT86b3Ru92GZ85PMuvTV93g&q=" + gif + "&limit=10&offset=0&lang=en";
 
 
-   
+
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -15,7 +16,7 @@ function displayGiphyInfo() {
         .then(function (response) {
 
             var rating = response.data.rating;
-            var imgSrc = response.data.images;
+            // var img = response.data.images;
 
             var results = response.data;
             console.log(results);
@@ -28,17 +29,44 @@ function displayGiphyInfo() {
                 var p = $("<p>").text("Rating: " + rating);
 
                 var img = $("<img>");
-                img.attr("src", results[i].images.fixed_height.url);
+                img.attr({
+                    "src": results[i].images.fixed_height.url,
+                    "data-still": results[i].images.fixed_height_still.url,
+                    "data-animate": results[i].images.fixed_height.url,
+                    "data-state": "still",
+                    "class": "gif"
+                });
+
+
 
                 newDiv.prepend(p);
                 newDiv.prepend(img);
 
                 $("#giphy-view").prepend(newDiv);
             }
-
         });
-
 }
+
+$(".gif").on("click", function () {
+
+    var animateImg = $(this).attr("data-animate");
+    var stillImg = $(this).attr("data-still");
+
+    var state = $(this).attr("data-state");
+
+    if (state === "still") {
+
+        $(this).attr("src", animateImg);
+        $(this).attr("data-state", "animate");
+
+    }
+    else {
+
+        $(this).attr("src", stillImg);
+        $(this).attr("data-state", "still");
+    }
+});
+
 
 // Function for displaying gif data
 function renderButtons() {
