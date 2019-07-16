@@ -16,7 +16,7 @@ function displayGiphyInfo() {
         .then(function (response) {
 
             var rating = response.data.rating;
-            // var img = response.data.images;
+
 
             var results = response.data;
             console.log(results);
@@ -28,14 +28,12 @@ function displayGiphyInfo() {
 
                 var p = $("<p>").text("Rating: " + rating);
 
-                var img = $("<img>");
-                img.attr({
-                    "src": results[i].images.fixed_height.url,
-                    "data-still": results[i].images.fixed_height_still.url,
-                    "data-animate": results[i].images.fixed_height.url,
-                    "data-state": "still",
-                    "class": "gif"
-                });
+
+                var img = $("<img class='result'>");
+                img.attr("src", results[i].images.fixed_height_still.url);
+                img.attr("data-state", "still");
+                img.attr("data-still", results[i].images.fixed_height_still.url);
+                img.attr("data-animate", results[i].images.fixed_height.url);
 
 
 
@@ -47,22 +45,14 @@ function displayGiphyInfo() {
         });
 }
 
-$(".gif").on("click", function () {
+$(document).on("click", ".result", function() {
+	var state = $(this).attr("data-state");
 
-    var animateImg = $(this).attr("data-animate");
-    var stillImg = $(this).attr("data-still");
-
-    var state = $(this).attr("data-state");
-
-    if (state === "still") {
-
-        $(this).attr("src", animateImg);
+	if(state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
-
-    }
-    else {
-
-        $(this).attr("src", stillImg);
+      } else {
+        $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
     }
 });
