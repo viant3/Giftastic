@@ -1,4 +1,4 @@
-var images = ["Bulldogs", "Nuclear Test", "Bruce Lee", "Blank Stare"];
+var images = ["Bulldogs", "Nuclear Test", "Bruce Lee", "Blank Stare", "Neil Degrasse"];
 
 function displayGiphyInfo() {
 
@@ -52,7 +52,8 @@ $(document).on("click", ".result", function() {
 	if(state === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
-      } else {
+      } 
+    else {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
     }
