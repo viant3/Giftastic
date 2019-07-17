@@ -1,4 +1,4 @@
-var images = ["Bulldogs", "Nuclear Test", "Bruce Lee", "Blank Stare", "Aliens"];
+var images = ["Ninjas", "Samurai", "Bulldogs", "Nuclear Test", "Bruce Lee", "Aliens"];
 
 function displayGiphyInfo() {
 
@@ -84,9 +84,8 @@ $("#add-gif").on("click", function (event) {
     var gif = $("#giphy-input").val().trim();
 
     images.push(gif);
-
-
     renderButtons();
+    document.getElementById("giphy-form").reset();
 });
 
 $(document).on("click", ".gif", displayGiphyInfo);
