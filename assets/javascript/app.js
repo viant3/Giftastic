@@ -21,8 +21,10 @@ function displayGiphyInfo() {
             var results = response.data;
             console.log(results);
 
+            var giphyContainer = $("<section class='giphy-container'>");
+
             for (var i = 0; i < results.length; i++) {
-                var newDiv = $("<div>");
+                var newDiv = $("<div class='display'>");
 
                 var rating = results[i].rating;
 
@@ -40,8 +42,10 @@ function displayGiphyInfo() {
                 newDiv.prepend(p);
                 newDiv.prepend(img);
 
-                $("#giphy-view").prepend(newDiv);
+                giphyContainer.prepend(newDiv)
+               
             }
+            $("#giphy-view").prepend(giphyContainer);
         });
 }
 

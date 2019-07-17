@@ -1,6 +1,21 @@
 button,
-div,
 form,
+div,
 input {
   margin: 10px;
 }
+
+section {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 30px;
+}
+
+button {
+  background-color: #800000;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+
