@@ -61,7 +61,7 @@ $(document).on("click", ".result", function() {
 
 
 function renderButtons() {
-  
+
     $("#buttons-view").empty();
 
     for (var i = 0; i < images.length; i++) {

@@ -1,3 +1,8 @@
+body {
+  background-color: #D3D3D3;
+}
+
+
 button,
 form,
 div,
@@ -11,6 +16,7 @@ section {
 	margin-bottom: 30px;
 }
 
+#add-gif,
 button {
   background-color: #B22222;
   color: #ffffff;
@@ -20,6 +26,7 @@ button {
   outline: none;
 }
 
+#add-gif:hover,
 button:hover {
   background-color: #CD5C5C;
   cursor: pointer;
