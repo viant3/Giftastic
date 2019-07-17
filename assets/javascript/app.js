@@ -1,4 +1,4 @@
-var images = ["Ninjas", "Samurai", "Bulldogs", "Nuclear Test", "Bruce Lee", "Aliens"];
+var images = ["Ninjas", "Samurai", "Bulldogs", "Nuclear", "Bruce Lee", "Aliens"];
 
 function displayGiphyInfo() {
 
